@@ -82,13 +82,21 @@ function getMovie() {
   else {
     axios.get("http://www.omdbapi.com/?t=mr+nobody&y=&plot=short&apikey=trilogy").then(
       function(response) {
+        console.log("                ");
         console.log("Movie: " + response.data.Title);
+        console.log("                ");
         console.log("Release Year: " + response.data.Year);
+        console.log("                ");
         console.log("IMDB Rating: " + response.data.Ratings[0].Value);
+        console.log("                ");
         console.log("Rotten Tomatoes Rating: " + response.data.Ratings[1].Value);
+        console.log("                ");
         console.log("Country where produced: " + response.data.Country);
+        console.log("                ");
         console.log("Language in: " + response.data.Language);
+        console.log("                ");
         console.log("Plot: " + response.data.Plot);
+        console.log("                ");
         console.log("Actors: " + response.data.Actors);
       }
     )
