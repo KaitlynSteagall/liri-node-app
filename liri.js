@@ -137,7 +137,7 @@ function getConcert() {
   if (artist) {
     axios.get(queryUrl).then(
       function(response) {
-        for (var i = 0; i < 8; i++) {
+        for (var i = 0; i < 20; i++) { //will display up to 20 events (soonest first)
           console.log("                ");
           console.log("Venue: " + response.data[i].venue.name);
           console.log("Location: " + response.data[i].venue.city + ", " + response.data[i].venue.region + " " + response.data[i].venue.country);
@@ -147,6 +147,9 @@ function getConcert() {
       }
     )
     .catch(function(error) {
+      console.log ("There are no more booked events to show."); //this will declare there are no more events to show if the amount of events is shorter than 20
+      console.log("                ");
+      console.log("Error Message:")
       if (error.response) {
         console.log("---------------Data---------------");
         console.log(error.response.data);
@@ -162,7 +165,5 @@ function getConcert() {
       console.log(error.config);
     })
   }
-
-
 
 }
