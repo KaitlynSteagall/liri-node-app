@@ -1,7 +1,10 @@
-// require("dotenv").config();
-// var keys = require("./keys.js");
-// var spotify = new Spotify(keys.spotify);
+require("dotenv").config();
+var keys = require("./keys.js");
 var axios = require("axios");
+var moment = require("moment");
+var Spotify = require("node-spotify-api");
+var spotify = new Spotify(keys.spotify);
+
 
 var action = process.argv[2];
 var addtlWords = process.argv;
@@ -27,7 +30,7 @@ case "do-what-it-says":
 function getMovie() {
   
   var movie = "";
-  
+
   for (var i = 3; i < addtlWords.length; i++) {
     if (i > 3 && i < addtlWords.length) {
       movie = movie + "+" + addtlWords[i];
