@@ -22,7 +22,7 @@ switch (action) {
     getSong();
     break;
 
-  case "do-what-it-says":
+  case "do-what-it-says": // may need to make this into a separate case/switch so do-what-it-says is argv 2 and then takes the first part of random.txt as argv 3 and the last part as argv4??? or split on comma in the function and make those two separate argvs within the function
     DWIS();
     break;
 }
@@ -166,4 +166,8 @@ function getConcert() {
     })
   }
 
-}
+};
+
+function getSong() {
+
+};
