@@ -169,5 +169,39 @@ function getConcert() {
 };
 
 function getSong() {
+  var song = "";
+  for (var i = 3; i < addtlWords.length; i++) {
+    if (i > 3 && i < addtlWords.length) {
+      song = song + "+" + addtlWords[i];
+    }
+    else {
+      song += addtlWords[i];
+    }
+  }
+  spotify.search({ type: 'track', query: song }).then(
+    function(response) {
+      console.log("                ");
+      console.log("Artist(s): " + response); // need to figure out spotify api response. look at object  
+      console.log("Song: " + response);
+      console.log("Song Preview: " + response);
+      console.log("Album: " + response);
 
+      console.log("                ");
+    }
+  )
+  .catch(function(error) {
+    if (error.response) {
+      console.log("---------------Data---------------");
+      console.log(error.response.data);
+      console.log("---------------Status---------------");
+      console.log(error.response.status);
+      console.log("---------------Headers---------------");
+      console.log(error.response.headers);
+    } else if (error.request) {
+      console.log(error.request);
+    } else {
+      console.log("Error", error.message);
+    }
+    console.log(error.config);
+  })
 };
